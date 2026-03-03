@@ -6,10 +6,10 @@
 
 {% block content %}
     <div id="hero-content">
-        <h1>Kodhjältar</h1>
-        <div class="background-fade-container">
+        <div id="banner" class="background-fade-container">
             <img src="{% static 'images/background.png' %}" alt="Bakgrund" class="background-fade-image">
         </div>
+        <h1 style="text-align: center;">Kodhjältar</h1>
         <div class="hero-list">
             {% for hero in heroes %}
                 <div class="card" style="width: 18rem;">
