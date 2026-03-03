@@ -1,7 +1,31 @@
 {% extends "layout.html" %}
 
+{% load static %}
+
 {% block title %}Demo{% endblock %}
 
 {% block content %}
-    <h1>Hello World</h1>
+    <div id="hero-content">
+        <h1>Kodhjältar</h1>
+        <div class="background-fade-container">
+            <img src="{% static 'images/background.png' %}" alt="Bakgrund" class="background-fade-image">
+        </div>
+        <div class="hero-list">
+            {% for hero in heroes %}
+                <div class="card" style="width: 18rem;">
+                {% if hero.image_name %}
+                    <img src="{% static 'images/' %}{{ hero.image_name }}" class="card-img-top">
+                {% else %}
+                    <img src="{% static 'images/' %}{{ hero.no_hero }}" class="card-img-top">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ hero.name }}</h5>
+                    <p class="card-text">{{ hero.description }}</p>
+                </div>
+                </div>          
+            {% empty %}
+                <span>Inga hjältar i listan just nu.</span>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

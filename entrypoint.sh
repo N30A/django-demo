@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-mkdir -p /app/db
+python3 manage.py collectstatic --noinput
 
 python3 manage.py migrate
 
